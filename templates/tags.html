@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+{{ super() }}
+Tags |
+{% endblock %}
+{% block content %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/index-bg-min_opt.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>{{ SITENAME }}</h1>
+                        <hr class="small">
+                        <span class="subheading">Tags for {{ SITENAME }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <ul class="list-group">
+                {% for tag, articles in tags %}
+                  <li class="list-group-item">
+                    <span class="badge">{{ articles|count }}</span>
+                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                  </li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

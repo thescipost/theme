@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+	{{ super() }}
+	{{ page.title|title }} |
+{% endblock %}
+{% block head %}
+<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">
+{% endblock %}
+{% block content %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('{{SITEURL }}/images/{{ page.oggimage }}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>{{ page.title|title }}</h1>
+                        <hr class="small">
+                        <span class="subheading">{{ page.description }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {{ page.content }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

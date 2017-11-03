@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Authors | {% endblock %}
+{% block content %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/authors-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Authors</h1>
+                        <hr class="small">
+                        <span class="subheading">Authors and their corresponding articles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			  {% for author, articles in authors %}
+			  <div class="panel panel-default">
+			    <div class="panel-heading" role="tab" id="headingOne">
+			      <h4 class="panel-title">
+			        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{ author.url|cta }}" aria-expanded="true" aria-controls="{{ author.url|cta }}">
+			          {{ author }} <span class="badge pull-right">{{ articles|count }}</span>
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="{{ author.url|cta }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+			      <div class="panel-body">
+                    <ul>
+                        {% for article in articles -%}
+                        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title}}</a></li>
+                        {%- endfor %}
+                    </ul>
+			      </div>
+			    </div>
+			  </div>
+			  {% endfor %}
+			</div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

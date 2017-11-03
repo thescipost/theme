@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ super() }}
+   Category: {{ category }} |
+{% endblock %}
+{% block content %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>{{ category }}</h1>
+                        <hr class="small">
+                        <span class="subheading">Articles filed under {{ category|title }} Category</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            	{% for article in articles_page.object_list %}
+                <div class="post-preview">
+                    <a href="{{ SITEURL }}/{{ article.url }}">
+                        <h2 class="post-title">
+                            {{ article.title }}
+                        </h2>
+                        <h3 class="post-subtitle">
+                        	{% if article.abstract %}
+                            	{{ article.abstract }}
+                            {% else %}
+                            	{{ article.summary }}
+                            {% endif %}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted by 
+                    	{% for author in article.authors -%}
+                    	<a href="{{ SITEURL }}/{{ author.url }}">{{ author }} </a>
+                    	{%- endfor %}
+                     on {{ article.locale_date|sd }} </p>
+                </div>
+                <hr>
+                {% endfor %}
+                <!-- Pager -->
+                {% if articles_page.has_other_pages() %}
+                    {% include 'pagination.html' %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
