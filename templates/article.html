@@ -132,6 +132,13 @@
     <!-- Post Content -->
     <article>
         <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ SITEURL }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category|title }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ article.title}}</li>
+              </ol>
+            </nav>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="text-align: justify;">
                     {{ article.content }}
