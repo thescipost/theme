@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,15 +23,11 @@
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- This is a previous font!
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Yeseva+One" rel="stylesheet"> 
-    <!-- Open sans font  
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    -->
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Serif+Pro" rel="stylesheet">  
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/favicon.ico" />
+
+    <link href="https://fonts.googleapis.com/css?family=Arbutus+Slab|Ubuntu" rel="stylesheet">
     
     </noscript>
     
@@ -86,7 +81,6 @@
                 <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ SITEURL}}/">Home</a></li>
                 <li><a href="{{ SITEURL }}/categories.html">Topics</a></li>
-                <li><a href="{{ SITEURL }}/tags.html">Tags</a></li>
                 {% if DISPLAY_PAGES_ON_MENU -%}
                   {% for pg in pages %}
                     <li><a href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title|title }}</a></li>
@@ -185,11 +179,8 @@
               </div>
               <div class="modal-body">
                 <ul>
-                    <li>This website is proudly powered by <a href="https://github.com/getpelican" target="_blank">Pelican</a></li>
-                    <li>Template: <a href="https://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a></li>
                     <li>Unless otherwise mentioned, Image Credits: <a href="http://unsplash.com" target="_blank">Unsplash</a></li>
-                    <li>Pelican Theme by: <a href="http://anivarth.github.io/">Anivarth Peesapati</a></li>
-                    <li>Hosted on: <a href="http://github.io/"><i class="fa fa-github"> Github</i></a></li>
+                    <li>Developed by : <a href="http://anivarth.github.io/">Anivarth Peesapati</a></li>
                 </ul>
               </div>
               <div class="modal-footer">

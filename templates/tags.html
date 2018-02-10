@@ -27,7 +27,7 @@ Tags |
                 {% for tag, articles in tags %}
                   <li class="list-group-item">
                     <span class="badge">{{ articles|count }}</span>
-                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag|title }}</a>
                   </li>
                 {% endfor %}
             </ul>
